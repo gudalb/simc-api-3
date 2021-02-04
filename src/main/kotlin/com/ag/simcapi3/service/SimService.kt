@@ -26,7 +26,7 @@ class SimService () {
         var ret = process.waitFor();
 
         var resultString = output.readText();
-        var dps = resultString.substringAfter("DPS Ranking:\r\n   ").substringBefore(" ")
+        var dps = resultString.substringAfter("DPS Ranking:").substringBefore("%").trim().substringBefore(" ")
         var time = LocalDateTime.now()
 
 
@@ -36,6 +36,14 @@ class SimService () {
         println("Simulation resulted in $dps")
         return SimResult(resultString, dps ,time)
     }
+    /**
+    *
+    *
+    *
+    *
+    * @param
+    * @return
+     */
 
     fun simArmory(armory: ArmoryInfo): SimResult {
         val newUUID = UUID.randomUUID()
@@ -56,7 +64,7 @@ class SimService () {
 
         var time = LocalDateTime.now()
         var resultString = output.readText();
-        var dps = resultString.substringAfter("DPS Ranking:\r\n   ").substringBefore(" ")
+        var dps = resultString.substringAfter("DPS Ranking:").substringBefore("%").trim().substringBefore(" ")
 
         profileFile.delete()
         output.delete()
