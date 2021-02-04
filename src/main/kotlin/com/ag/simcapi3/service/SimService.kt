@@ -1,14 +1,17 @@
-package com.ag.simcapi3
+package com.ag.simcapi3.service
 
 
+import com.ag.simcapi3.model.ArmoryInfo
+import com.ag.simcapi3.model.SimResult
 import org.springframework.stereotype.Service
 import java.io.File
+import java.nio.file.Files
 import java.time.LocalDateTime
 import java.util.*
 
 
 @Service
-class SimService {
+class SimService () {
 
     fun runSim(profile: String): SimResult {
         val newUUID = UUID.randomUUID()
@@ -22,9 +25,16 @@ class SimService {
         val process = pb.start()
         var ret = process.waitFor();
 
-        println("Simulation results saved to " + output.toString())
+        var resultString = output.readText();
+        var dps = resultString.substringAfter("DPS Ranking:\r\n   ").substringBefore(" ")
+        var time = LocalDateTime.now()
 
-        return SimResult(output.readText(), LocalDateTime.now())
+
+        profileFile.delete()
+        output.delete()
+
+        println("Simulation resulted in $dps")
+        return SimResult(resultString, dps ,time)
     }
 
     fun simArmory(armory: ArmoryInfo): SimResult {
@@ -34,10 +44,6 @@ class SimService {
 
         val commands1 = "armory=" + armory.region + "," + armory.realm + "," + armory.charName
         val commands2  = "save=C:\\Users\\albin\\simc-api-3\\src\\main\\resources\\profiles\\" + newUUID + ".simc"
-
-
-        println("running commands with processbuilder: $commands1 $commands2")
-
         val pb = ProcessBuilder("src/main/resources/simc-902-01-win64/simc.exe", commands1, commands2)
         val process = pb.start()
         var ret = process.waitFor();
@@ -48,11 +54,15 @@ class SimService {
         val process2 = pb2.start()
         var ret2 = process2.waitFor();
 
+        var time = LocalDateTime.now()
+        var resultString = output.readText();
+        var dps = resultString.substringAfter("DPS Ranking:\r\n   ").substringBefore(" ")
 
+        profileFile.delete()
+        output.delete()
 
-
-        println("Simulation results saved to " + output.toString())
-        return SimResult(output.readText(), LocalDateTime.now())
+        println("Simulation resulted in $dps")
+        return SimResult(resultString, dps ,time)
     }
 
 
