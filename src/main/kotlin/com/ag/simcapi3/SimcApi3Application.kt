@@ -8,4 +8,5 @@ class SimcApi3Application
 
 fun main(args: Array<String>) {
     runApplication<SimcApi3Application>(*args)
+
 }
