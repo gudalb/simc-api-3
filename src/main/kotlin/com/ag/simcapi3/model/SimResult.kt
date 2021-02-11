@@ -1,5 +1,20 @@
 package com.ag.simcapi3.model
 
+import java.lang.annotation.Inherited
 import java.time.LocalDateTime
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
 
-data class SimResult (val result: String,val dps: String, val time: LocalDateTime)
+@Entity
+@Table(name = "results")
+data class SimResult(
+        @Id
+        val uuid: String,
+        @Column(length = 25000)
+        val result: String,
+        @Column
+        val dps: String,
+        @Column
+        val time: LocalDateTime)

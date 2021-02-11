@@ -1,22 +1,19 @@
-package com.ag.simcapi3
+package com.ag.simcapi3.service
 
-import com.ag.simcapi3.model.CompletedSimulations
 import com.ag.simcapi3.model.QueueSimulation
 import com.ag.simcapi3.model.SimResult
+import com.ag.simcapi3.repo.ResultRepo
 import org.springframework.stereotype.Service
 import java.io.File
 import java.time.LocalDateTime
 import kotlin.properties.Delegates
 
 @Service
-class SimWorker(): Runnable {
+class SimWorker(var resultRepo: ResultRepo): Runnable {
 
-    var queue: ArrayList<QueueSimulation> by Delegates.notNull()
-    var completedSimulations: ArrayList<CompletedSimulations> by Delegates.notNull()
+    var queue: ArrayList<QueueSimulation> = ArrayList()
 
     init {
-        this.queue = ArrayList()
-        this.completedSimulations = ArrayList()
         val t: Unit = Thread(this).start()
     }
 
@@ -40,15 +37,18 @@ class SimWorker(): Runnable {
 
                         val resultString = output.readText()
                         val dps = resultString.substringAfter("DPS Ranking:").substringBefore("%").trim().substringBefore(" ")
-                        val time = LocalDateTime.now()
 
-                        Thread.sleep(10000)
+                        // for testing queue
+                        // Thread.sleep(10000)
 
                         profileFile.delete()
                         output.delete()
 
                         println("Simulation of ${firstInQueue.UUID} resulted in $dps")
-                        completedSimulations.add(CompletedSimulations(firstInQueue.UUID, SimResult(resultString,dps, LocalDateTime.now())))
+
+                        var result = SimResult(firstInQueue.UUID, resultString,dps, LocalDateTime.now())
+
+                        resultRepo.save(result)
 
                         queue.remove(firstInQueue);
                     }
