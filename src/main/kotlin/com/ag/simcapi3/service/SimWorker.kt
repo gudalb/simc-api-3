@@ -6,7 +6,6 @@ import com.ag.simcapi3.repo.ResultRepo
 import org.springframework.stereotype.Service
 import java.io.File
 import java.time.LocalDateTime
-import kotlin.properties.Delegates
 
 @Service
 class SimWorker(var resultRepo: ResultRepo): Runnable {

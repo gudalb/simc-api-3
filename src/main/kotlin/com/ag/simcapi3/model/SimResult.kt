@@ -1,6 +1,5 @@
 package com.ag.simcapi3.model
 
-import java.lang.annotation.Inherited
 import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity

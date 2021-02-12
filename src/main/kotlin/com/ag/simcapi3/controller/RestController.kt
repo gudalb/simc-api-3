@@ -63,4 +63,10 @@ class SimController (val simWorker: SimWorker, val resultRepo: ResultRepo){
         var result = resultRepo.findById(uuid)
         return result.get()
     }
+
+    @GetMapping(value = ["/getallresult"], produces = ["application/json"])
+    fun getAllResult(@RequestParam(value = "uuid") uuid: String): MutableIterable<SimResult> {
+        var result = resultRepo.findAll()
+        return result
+    }
 }
