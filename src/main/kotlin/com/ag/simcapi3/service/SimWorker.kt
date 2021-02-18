@@ -38,7 +38,7 @@ class SimWorker(var resultRepo: ResultRepo): Runnable {
                         val dps = resultString.substringAfter("DPS Ranking:").substringBefore("%").trim().substringBefore(" ")
 
                         // for testing queue
-                        // Thread.sleep(10000)
+                         Thread.sleep(5000)
 
                         profileFile.delete()
                         output.delete()

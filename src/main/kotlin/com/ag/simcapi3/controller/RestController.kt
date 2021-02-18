@@ -6,6 +6,7 @@ import com.ag.simcapi3.model.SimResult
 import com.ag.simcapi3.repo.ResultRepo
 import com.ag.simcapi3.service.SimWorker
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 
 @CrossOrigin
 @RestController
@@ -45,27 +46,28 @@ class SimController (val simWorker: SimWorker, val resultRepo: ResultRepo){
     }
 
     @GetMapping(value = ["/placeinqueue"], produces = ["application/json"])
-    fun getPlaceInQueue(@RequestParam(value = "uuid") uuid: String): QueueSimulation? {
+    fun getPlaceInQueue(@RequestParam(value = "uuid") uuid: String): Int {
 
         val queuedSimulations = simWorker.queue
 
         val queuedSimulation = queuedSimulations.firstOrNull { it.UUID.equals(uuid) }
+        val simIndex = queuedSimulations.indexOf(queuedSimulation)
 
         if (queuedSimulation != null) {
-            return queuedSimulation
+            return simIndex
         } else
-            return null
+            return -1
 
     }
 
     @GetMapping(value = ["/getresult"], produces = ["application/json"])
-    fun getResult(@RequestParam(value = "uuid") uuid: String): SimResult? {
+    fun getResult(@RequestParam(value = "uuid") uuid: String): SimResult {
         var result = resultRepo.findById(uuid)
         return result.get()
     }
 
     @GetMapping(value = ["/getallresult"], produces = ["application/json"])
-    fun getAllResult(@RequestParam(value = "uuid") uuid: String): MutableIterable<SimResult> {
+    fun getAllResult(): MutableIterable<SimResult> {
         var result = resultRepo.findAll()
         return result
     }
