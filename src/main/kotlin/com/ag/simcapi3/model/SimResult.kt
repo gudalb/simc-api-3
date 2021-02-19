@@ -16,4 +16,6 @@ data class SimResult(
         @Column
         val dps: String,
         @Column
+        val charName: String,
+        @Column
         val time: LocalDateTime)

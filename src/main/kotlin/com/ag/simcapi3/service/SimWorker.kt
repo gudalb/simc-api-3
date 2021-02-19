@@ -36,6 +36,7 @@ class SimWorker(var resultRepo: ResultRepo): Runnable {
 
                         val resultString = output.readText()
                         val dps = resultString.substringAfter("DPS Ranking:").substringBefore("%").trim().substringBefore(" ")
+                        val charName = resultString.substringAfter("Player: ").substringBefore("60").trim()
 
                         // for testing queue
                          Thread.sleep(5000)
@@ -45,7 +46,7 @@ class SimWorker(var resultRepo: ResultRepo): Runnable {
 
                         println("Simulation of ${firstInQueue.UUID} resulted in $dps")
 
-                        var result = SimResult(firstInQueue.UUID, resultString,dps, LocalDateTime.now())
+                        var result = SimResult(firstInQueue.UUID, resultString,dps, charName, LocalDateTime.now())
 
                         resultRepo.save(result)
 
