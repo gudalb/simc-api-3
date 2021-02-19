@@ -31,5 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/resources/profiles/
-/src/main/resources/results/
+
+
+/src/main/resources/profiles/*
+/src/main/resources/results/*
+!/src/main/resources/profiles/.gitkeep
+!/src/main/resources/results/.gitkeep
+

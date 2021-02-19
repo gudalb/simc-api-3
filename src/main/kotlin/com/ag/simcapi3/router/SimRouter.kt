@@ -21,8 +21,7 @@ class SimRouter(private val simHandler: SimHandler) {
     @Bean
     fun SimRoutes() = router {
         (accept(MediaType.TEXT_HTML) and "/sim").nest {
-            GET("", simHandler::getResults)
-            GET("/test", simHandler::getTest)
+            GET("/top", simHandler::getResults)
         }
     }
 

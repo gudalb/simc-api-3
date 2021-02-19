@@ -1,0 +1,184 @@
+SimulationCraft 902-01 for World of Warcraft 9.0.2.36949 Live (hotfix 2020-12-15/36949, git build shadowlands 9bf4fb3)
+
+
+Simulating... ( iterations=1000000, threads=4, target_error=0.200, max_time=300, vary_combat_length=0.20, optimal_raid=1, fight_style= )
+
+Generating Baseline: 1/1 [====>...............] 359/1308 682.936 Mean=5045 Error=0.416%Generating Baseline: 1/1 [======>.............] 461/1345 674.182 Mean=5045 Error=0.366%Generating Baseline: 1/1 [=======>............] 563/1331 680.490 Mean=5048 Error=0.326%Generating Baseline: 1/1 [=========>..........] 665/1363 677.642 Mean=5048 Error=0.302%Generating Baseline: 1/1 [==========>.........] 765/1410 686.487 Mean=5045 Error=0.284%Generating Baseline: 1/1 [============>.......] 868/1373 691.562 Mean=5049 Error=0.262%Generating Baseline: 1/1 [=============>......] 968/1378 697.264 Mean=5050 Error=0.247%Generating Baseline: 1/1 [===============>....] 1068/1351 696.256 Mean=5047 Error=0.232%Generating Baseline: 1/1 [================>...] 1168/1355 668.097 Mean=5045 Error=0.222%Generating Baseline: 1/1 [==================>.] 1271/1349 651.211 Mean=5045 Error=0.212%Generating Baseline: 1/1 [===================>] 1372/1359 638.037 Mean=5047 Error=0.204%Generating Baseline: 1/1 [===================>] 1407/1407 636.454 Mean=5046 Error=0.196% 552msec
+Merging data from thread-2 ...
+Merging data from thread-3 ...
+Merging data from thread-1 ...
+Analyzing actor data ...
+
+Generating reports...
+
+DPS Ranking:
+   5045 100.0%  Raid
+   5045  100.0%  Eble
+
+HPS Ranking:
+      0 100.0%%  Raid
+
+Player: Eble blood_elf paladin retribution 60
+  DPS=5045.105683035052 DPS-Error=9.91010065268152/0.20% DPS-Range=596.2366616139288/11.82%
+  DPR=7536.776398027392 RPS-Out=0.6681806118736722 RPS-In=0.6766718401645856 Resource=holy_power Waiting=0.9814202614646353 ApM=50.39346354104092
+  Talents: 1312131
+  Covenant: kyrian
+  Core Stats:    strength=1413|1299(1238)  agility=158|158(158)  stamina=1789|1704(1704)  intellect=474|452(452)  spirit=0|0(0)  health=35780|34080  mana=0|0
+  Generic Stats: mastery=40.59%|40.59%(608)  versatility=9.77%|9.77%(391)  leech=2.67%|2.67%(56)  runspeed=7.02%|7.02%(30)
+  Spell Stats:   power=1794|1599(0)  hit=15.00%|15.00%(0)  crit=9.94%|9.94%(138)  haste=19.42%|19.42%(641)  speed=19.42%|19.42%  manareg=0|0(0)
+  Attack Stats:  power=1505|1319(20)  hit=7.50%|7.50%(0)  crit=9.94%|9.94%(138)  expertise=7.50%|7.50%(0)  haste=19.42%|19.42%(641)  speed=19.42%|19.42%
+  Defense Stats: armor=1204|1204(1204) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=12.36%|11.68%(0)  block=10.00%|10.00%(0) crit=0.00%|0.00%  versatility=4.89%|4.89%(391)
+  Priorities (actions.precombat):
+    flask/food/augmentation/snapshot_stats/potion/arcane_torrent
+  Priorities (actions.default):
+    auto_attack/rebuke/call_action_list,name=cooldowns/call_action_list,name=generators
+  Priorities (actions.cooldowns):
+    potion,if=(buff.bloodlust.react|buff.avenging_wrath.up&buff.avenging_wrath.remains>18|buff.crusade.up&buff.crusade.remains<25)
+    lights_judgment,if=spell_targets.lights_judgment>=2|(!raid_event.adds.exists|raid_event.adds.in>75)
+    fireblood,if=buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack=10/shield_of_vengeance/blessing_of_the_seasons
+    use_item,name=skulkers_wing/use_item,name=macabre_sheet_music,if=buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack>=10
+    use_item,name=memory_of_past_sins/use_item,name=dreadfire_vessel
+    use_item,name=darkmoon_deck_voracity,if=buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack>=10
+    use_item,name=overwhelming_power_crystal,if=buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack>=10/use_item,name=spare_meat_hook
+    use_item,name=grim_codex
+    use_item,name=inscrutable_quantum_device,if=buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack>=10|cooldown.avenging_wrath.remains>45|cooldown.crusade.remains>45
+    use_item,name=sinful_gladiators_badge_of_ferocity,if=buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack>=10|cooldown.avenging_wrath.remains>45|cooldown.crusade.remains>45
+    avenging_wrath,if=(holy_power>=4&time<5|holy_power>=3&time>5|talent.holy_avenger.enabled&cooldown.holy_avenger.remains=0)&time_to_hpg=0
+    crusade,if=(holy_power>=4&time<5|holy_power>=3&time>5|talent.holy_avenger.enabled&cooldown.holy_avenger.remains=0)&time_to_hpg=0/ashen_hallow
+    holy_avenger,if=time_to_hpg=0&((buff.avenging_wrath.up|buff.crusade.up)|(buff.avenging_wrath.down&cooldown.avenging_wrath.remains>40|buff.crusade.down&cooldown.crusade.remains>40))
+    final_reckoning,if=holy_power>=3&cooldown.avenging_wrath.remains>gcd&time_to_hpg=0&(!talent.seraphim.enabled|buff.seraphim.up)
+    the_unbound_force,if=time<=2|buff.reckless_force.up
+    guardian_of_azeroth,if=!talent.crusade.enabled&(cooldown.avenging_wrath.remains<5&holy_power>=3|cooldown.avenging_wrath.remains>=45)|(talent.crusade.enabled&cooldown.crusade.remains<gcd&holy_power>=4|cooldown.crusade.remains>=45)
+    worldvein_resonance,if=cooldown.avenging_wrath.remains<gcd&holy_power>=3|talent.crusade.enabled&cooldown.crusade.remains<gcd&holy_power>=4|cooldown.avenging_wrath.remains>=45|cooldown.crusade.remains>=45
+    focused_azerite_beam,if=(!raid_event.adds.exists|raid_event.adds.in>30|spell_targets.divine_storm>=2)&!(buff.avenging_wrath.up|buff.crusade.up)&(cooldown.blade_of_justice.remains>gcd*3&cooldown.judgment.remains>gcd*3)
+    memory_of_lucid_dreams,if=(buff.avenging_wrath.up|buff.crusade.up&buff.crusade.stack=10)&holy_power<=3
+    purifying_blast,if=(!raid_event.adds.exists|raid_event.adds.in>30|spell_targets.divine_storm>=2)
+  Priorities (actions.generators):
+    call_action_list,name=finishers,if=holy_power>=5|buff.holy_avenger.up|debuff.final_reckoning.up|debuff.execution_sentence.up|buff.memory_of_lucid_dreams.up|buff.seething_rage.up
+    divine_toll,if=!debuff.judgment.up&(!raid_event.adds.exists|raid_event.adds.in>30)&(holy_power<=2|holy_power<=4&(cooldown.blade_of_justice.remains>gcd*2|debuff.execution_sentence.up|debuff.final_reckoning.up))&(!talent.final_reckoning.enabled|cooldown.final_reckoning.remains>gcd*10)&(!talent.execution_sentence.enabled|cooldown.execution_sentence.remains>gcd*10)
+    wake_of_ashes,if=(holy_power=0|holy_power<=2&(cooldown.blade_of_justice.remains>gcd*2|debuff.execution_sentence.up|debuff.final_reckoning.up))&(!raid_event.adds.exists|raid_event.adds.in>20)&(!talent.execution_sentence.enabled|cooldown.execution_sentence.remains>15)&(!talent.final_reckoning.enabled|cooldown.final_reckoning.remains>15)
+    hammer_of_wrath,if=holy_power<=4/blade_of_justice,if=holy_power<=3
+    judgment,if=!debuff.judgment.up&(holy_power<=2|holy_power<=4&cooldown.blade_of_justice.remains>gcd*2)
+    call_action_list,name=finishers,if=(target.health.pct<=20|buff.avenging_wrath.up|buff.crusade.up|buff.empyrean_power.up)
+    crusader_strike,if=cooldown.crusader_strike.charges_fractional>=1.75&(holy_power<=2|holy_power<=3&cooldown.blade_of_justice.remains>gcd*2|holy_power=4&cooldown.blade_of_justice.remains>gcd*2&cooldown.judgment.remains>gcd*2)
+    call_action_list,name=finishers/consecration,if=!consecration.up/crusader_strike,if=holy_power<=4/arcane_torrent,if=holy_power<=4
+    consecration,if=time_to_hpg>gcd
+  Priorities (actions.finishers):
+    variable,name=ds_castable,value=spell_targets.divine_storm>=2|buff.empyrean_power.up&debuff.judgment.down&buff.divine_purpose.down|spell_targets.divine_storm>=2&buff.crusade.up&buff.crusade.stack<10
+    seraphim,if=((!talent.crusade.enabled&buff.avenging_wrath.up|cooldown.avenging_wrath.remains>25)|(buff.crusade.up|cooldown.crusade.remains>25))&(!talent.final_reckoning.enabled|cooldown.final_reckoning.remains<10)&(!talent.execution_sentence.enabled|cooldown.execution_sentence.remains<10)&time_to_hpg=0
+    vanquishers_hammer,if=(!talent.final_reckoning.enabled|cooldown.final_reckoning.remains>gcd*10|debuff.final_reckoning.up)&(!talent.execution_sentence.enabled|cooldown.execution_sentence.remains>gcd*10|debuff.execution_sentence.up)|spell_targets.divine_storm>=2
+    execution_sentence,if=spell_targets.divine_storm<=3&((!talent.crusade.enabled|buff.crusade.down&cooldown.crusade.remains>10)|buff.crusade.stack>=3|cooldown.avenging_wrath.remains>10|debuff.final_reckoning.up)&time_to_hpg=0
+    divine_storm,if=variable.ds_castable&!buff.vanquishers_hammer.up&((!talent.crusade.enabled|cooldown.crusade.remains>gcd*3)&(!talent.execution_sentence.enabled|cooldown.execution_sentence.remains>gcd*3|spell_targets.divine_storm>=3)|spell_targets.divine_storm>=2&(talent.holy_avenger.enabled&cooldown.holy_avenger.remains<gcd*3|buff.crusade.up&buff.crusade.stack<10))
+    templars_verdict,if=(!talent.crusade.enabled|cooldown.crusade.remains>gcd*3)&(!talent.execution_sentence.enabled|cooldown.execution_sentence.remains>gcd*3&spell_targets.divine_storm<=3)&(!talent.final_reckoning.enabled|cooldown.final_reckoning.remains>gcd*3)&(!covenant.necrolord.enabled|cooldown.vanquishers_hammer.remains>gcd)|talent.holy_avenger.enabled&cooldown.holy_avenger.remains<gcd*3|buff.holy_avenger.up|buff.crusade.up&buff.crusade.stack<10|buff.vanquishers_hammer.up
+  Actions:
+    arcane_torrent                Count=   1.8|  0.000sec  DPE=    0| 0.00%  DPET=   0  DPR=     0  pDPS=   0
+    avenging_wrath                Count=   3.0|121.301sec  DPE=    0| 0.00%  DPET=   0  DPR=     0  pDPS=   0
+    blade_of_justice              Count=  37.0|  8.086sec  DPE= 2135| 5.25%  DPET=1763  DPR=     0  pDPS= 265  Miss= 0.00%  Hit=  1809|  1662|  2351  Crit=  3866|  3324|  4701|15.83%
+    consecration                  Count=  12.2| 21.923sec  DPE= 2147| 0.00%  DPET=1751  DPR=     0  pDPS=   0
+    consecration_tick             Count=   0.0|  0.000sec  DPE=    0| 1.75%  DPET=   0  DPR=     0  pDPS=  88  MissTick= 0.00%  Tick=   125|   115|   181  CritTick=   264|   230|   363|13.45%
+    crusader_strike               Count=  44.0|  6.428sec  DPE= 1077| 3.16%  DPET= 883  DPR=     0  pDPS= 159  Miss= 0.00%  Hit=   932|   877|  1240  Crit=  1973|  1754|  2480|13.93%
+    divine_storm                  Count=   6.5| 36.126sec  DPE= 4880| 2.12%  DPET=3987  DPR=     0  pDPS= 107  Miss= 0.00%  Hit=  4221|  3856|  6074  Crit=  9012|  7712| 12147|13.74%
+    divine_toll                   Count=   5.4| 61.214sec  DPE=15451| 0.00%  DPET=12808  DPR=     0  pDPS=   0
+    divine_toll_judgment          Count=  14.4| 61.214sec  DPE= 5742| 5.51%  DPET=   0  DPR=     0  pDPS= 278  Miss= 0.00%  Hit=  5020|  4682|  5955  Crit= 10433|  9363| 11910|13.46%
+    hammer_of_wrath               Count=  21.7| 14.061sec  DPE= 5625| 8.12%  DPET=4778  DPR=     0  pDPS= 409  Miss= 0.00%  Hit=  4464|  3591|  5657  Crit=  9454|  7182| 11313|23.33%
+    judgment                      Count=  27.3| 10.829sec  DPE= 2823| 5.13%  DPET=2328  DPR=     0  pDPS= 259  Miss= 0.00%  Hit=  2375|  2102|  3310  Crit=  5154|  4203|  6621|16.13%
+    melee                         Count= 148.3|  2.407sec  DPE= 1173|11.57%  DPET= 497  DPR=     0  pDPS= 583  Miss= 0.00%  Hit=   988|   905|  1280  Crit=  2115|  1810|  2560|16.34%
+    sanctified_wrath              Count=  28.1|  9.631sec  DPE= 3285| 6.13%  DPET=   0  DPR=     0  pDPS= 310  Miss= 0.00%  Hit=  2534|  2238|  2937  Crit=  5076|  4475|  5874|29.53%
+    shattered_psyche              Count=  15.9| 32.365sec  DPE= 2319| 2.46%  DPET=   0  DPR=     0  pDPS= 125  Miss= 0.00%  Hit=  2119|  2057|  2268  Crit=  4241|  4115|  4536| 9.61%
+    shield_of_vengeance           Count=   3.0|120.546sec  DPE=    0| 0.00%  DPET=   0  DPR=     0  pDPS=   0  Miss= 0.00%
+    shield_of_vengeance_proc      Count=   2.9|120.488sec  DPE=10734| 2.05%  DPET=   0  DPR=     0  pDPS= 104  Miss= 0.00%  Hit= 10734| 10734| 10734
+    templars_verdict              Count=  79.2|  3.745sec  DPE= 6926|36.48%  DPET=5717  DPR=  2749  pDPS=1839  Miss= 0.00%  Hit=  5796|  4466| 10552  Crit= 12603|  8932| 21103|16.60%
+    virtuous_command              Count= 165.5|  1.950sec  DPE=  342| 3.76%  DPET=   0  DPR=     0  pDPS= 190  Miss= 0.00%  Hit=   342|    98|  2364
+    wake_of_ashes                 Count=   6.6| 47.971sec  DPE=10034| 4.40%  DPET=8249  DPR=     0  pDPS= 222  Miss= 0.00%  Hit=  8348|  7251| 11422  Crit= 18192| 14503| 22844|17.12%
+    zeal                          Count= 117.3|  2.956sec  DPE=  271| 2.12%  DPET=   0  DPR=     0  pDPS= 107  Miss= 0.00%  Hit=   226|   196|   308  Crit=   491|   391|   616|16.98%
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/power_word_fortitude
+  Dynamic Buffs:
+    avenging_wrath               : start=  3.0 refresh=  0.0 interval=121.3 trigger=121.3 duration= 29.0 uptime= 28.76%  benefit= 26.82%
+    bloodlust                    : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.0 uptime= 13.58%
+    combat_meditation            : start=  5.4 refresh=  0.0 interval= 61.2 trigger= 61.2 duration= 18.4 uptime= 33.15%
+    divine_purpose               : start= 12.8 refresh=  0.0 interval= 21.5 trigger= 21.5 duration=  2.4 uptime= 10.16%  benefit= 14.65%
+    empyrean_power               : start=  6.6 refresh=  0.0 interval= 36.4 trigger= 36.2 duration=  2.8 uptime=  6.29%
+    feast_of_gluttonous_hedonism : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=298.5 uptime=100.00%
+    potion_of_spectral_strength  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 23.0 uptime=  7.81%
+    shattered_psyche             : start=  3.0 refresh=  0.0 interval=120.5 trigger=120.5 duration=  1.3 uptime=  1.20%
+    shield_of_vengeance          : start=  3.0 refresh=  3.0 interval=120.5 trigger= 40.1 duration= 14.7 uptime= 14.85%
+    spectral_flask_of_power      : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=298.5 uptime=100.00%
+    veiled_augmentation          : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=298.5 uptime=100.00%
+    virtuous_command             : start= 29.9 refresh= 11.9 interval= 10.1 trigger=  7.2 duration=  5.3 uptime= 52.84%  benefit= 53.36%
+    windfury_totem               : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration=298.5 uptime=100.00%
+    zeal                         : start= 21.3 refresh= 20.5 interval= 14.2 trigger=  7.2 duration=  9.5 uptime= 67.75%  benefit= 81.27%
+  Up-Times:
+     11.87% : Holy Power Cap                
+  Procs:
+     17.78891 |  16.31425sec : Art of War
+     12.80171 |  21.54515sec : Divine Purpose
+      6.61407 |  36.20697sec : Empyrean Power
+  Gains:
+         1.8 : arcane_torrent   (holy_power)   
+        19.8 : wake_of_ashes    (holy_power)   
+        21.7 : hammer_of_wrath  (holy_power)   
+        74.0 : blade_of_justice (holy_power)   
+        40.6 : judgment         (holy_power)     (overflow=2.58%)
+        44.0 : crusader_strike  (holy_power)   
+  Waiting:  0.98%
+
+
+ *** Targets *** 
+
+Target: Fluffy_Pillow humanoid enemy unknown 63
+  DTPS=5045.105683035046 DTPS-Error=9.91010065268152/0.20% DTPS-Range=596.2366616139357/11.82%
+  DPR=0 RPS-Out=4746.76061183311 RPS-In=0 Resource=health Waiting=0 ApM=0
+  Talents: 0000000
+  Core Stats:    strength=0|0(0)  agility=0|0(0)  stamina=0|0(0)  intellect=0|0(0)  spirit=0|0(0)  health=0|1457447  mana=0|0
+  Generic Stats: mastery=0.00%|0.00%(0)  versatility=0.00%|0.00%(0)  leech=0.00%|0.00%(0)  runspeed=7.00%|7.00%(0)
+  Spell Stats:   power=0|0(0)  hit=0.00%|0.00%(0)  crit=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%  manareg=0|0(0)
+  Attack Stats:  power=0|0(0)  hit=0.00%|0.00%(0)  crit=5.00%|5.00%(0)  expertise=0.00%|0.00%(0)  haste=0.00%|0.00%(0)  speed=0.00%|0.00%
+  Defense Stats: armor=1071|1071(1071) miss=3.00%|3.00%  dodge=3.00%|3.00%(0)  parry=3.00%|3.00%(0)  block=3.00%|3.00%(0) crit=0.00%|0.00%  versatility=0.00%|0.00%(0)
+  Priorities (actions.precombat):
+    snapshot_stats
+  Priorities (actions.default):
+
+  Actions:
+
+  Constant Buffs:
+    arcane_intellect/battle_shout/bleeding/chaos_brand/mortal_wounds/mystic_touch/power_word_fortitude
+  Dynamic Buffs:
+    Health Decade (0 - 10)   : start=  0.7 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 50.8 uptime= 11.03%
+    Health Decade (10 - 20)  : start=  0.9 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 27.0 uptime=  8.00%
+    Health Decade (20 - 30)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 32.0 uptime= 10.62%
+    Health Decade (30 - 40)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 37.7 uptime= 12.76%
+    Health Decade (40 - 50)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 31.4 uptime= 10.67%
+    Health Decade (50 - 60)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 28.5 uptime=  9.67%
+    Health Decade (60 - 70)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 40.8 uptime= 13.85%
+    Health Decade (70 - 80)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 37.0 uptime= 12.57%
+    Health Decade (80 - 90)  : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 18.8 uptime=  6.39%
+    Health Decade (90 - 100) : start=  1.0 refresh=  0.0 interval=  0.0 trigger=  0.0 duration= 13.9 uptime=  4.44%
+    judgment                 : start= 32.7 refresh=  9.1 interval=  9.2 trigger=  7.2 duration=  1.9 uptime= 20.27%  benefit= 37.99%
+    shattered_psyche_debuff  : start=  3.0 refresh= 12.9 interval=120.5 trigger= 16.1 duration=  6.1 uptime=  6.17%  benefit= 51.83%
+    sinful_revelation        : start= 10.3 refresh=  6.4 interval= 28.3 trigger= 17.0 duration= 12.7 uptime= 43.89%
+  Waiting:  0.00%
+
+
+Baseline Performance:
+  RNG Engine    = xoshiro256+
+  Iterations    = 1411 (403, 334, 341, 333)
+  TotalEvents   = 2870609
+  MaxEventQueue = 38
+  TargetHealth  = 1457448
+  SimSeconds    = 419962.799
+  CpuSeconds    = 1.96875
+  WallSeconds   = 0.56647
+  InitSeconds   = 0.0101558
+  MergeSeconds  = 0.0010039
+  AnalyzeSeconds= 0.0006698
+  SpeedUp       = 213921
+  EndTime       = 2021-01-18 13:21:31+0100 (1610972491)
+
+
+Waiting:
+     0.98% : Eble
+
+text report took 0.0010798seconds.
+

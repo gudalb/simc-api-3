@@ -1,0 +1,114 @@
+# Eble - Retribution - 2021-01-18 11:34 - EU/Stormscale
+# SimC Addon 9.0.2-15
+# Requires SimulationCraft 901-01 or newer
+
+paladin="Eble"
+level=60
+race=blood_elf
+region=eu
+server=stormscale
+role=attack
+professions=engineering=94/enchanting=125
+talents=1312131
+spec=retribution
+
+covenant=kyrian
+soulbind=pelagos:7,328266/216:5/328261/133:6/328265/182:5
+# soulbind=kleia:13,329791/193:5/334066/163:6/329784/141:6
+# soulbind=forgelite_prime_mikanikos:18,
+# conduits_available=164:5/167:5/176:5/177:5/182:5/184:4/193:5/194:5/195:5/196:4/216:5/142:4/159:6/161:5/163:6/129:6/133:6/141:6/197:5/209:5
+# renown=24
+
+head=,id=178694,gem_id=173128,bonus_id=7211/6652/1501/5881/6646/6935
+neck=,id=183040,bonus_id=7188/6652/7193/1485/6646
+shoulder=,id=178697,bonus_id=7206/6652/1501/5871/6646
+back=,id=183032,enchant_id=6202,bonus_id=7188/6652/1485/6646
+chest=,id=182999,enchant_id=6230,bonus_id=7188/41/1485/6646
+tabard=,id=5976
+wrist=,id=179354,enchant_id=6220,bonus_id=7210/6652/7194/1501/5878/6646
+hands=,id=182984,enchant_id=6210,bonus_id=7188/6652/1485/6646
+waist=,id=183025,bonus_id=7188/6652/7194/1485/6646
+legs=,id=175904,bonus_id=6631/1479/6646
+feet=,id=171413,enchant_id=6207,bonus_id=7054/6647/6649/6718/1522
+finger1=,id=178824,enchant_id=6166,bonus_id=7210/6652/7193/1501/5861/6646
+finger2=,id=184143,enchant_id=6166,bonus_id=6652/7193/1492/6646
+trinket1=,id=184027,bonus_id=7188/6652/1485/6646
+trinket2=,id=184025,bonus_id=7188/6652/1485/6646
+main_hand=,id=180315,enchant_id=6228,bonus_id=7188/6652/1518/6646
+
+### Gear from Bags
+#
+# Vorpal Amulet (155)
+# neck=,id=184108,bonus_id=6652/7193
+#
+# Tabard of the Ascended (1)
+# tabard=,id=178991
+#
+# Hellhound Cuffs (213)
+# wrist=,id=183018,enchant_id=6222,gem_id=168636,bonus_id=7188/6652/6935/1485/6646
+#
+# Shock Barrier (210)
+# legs=,id=171416,bonus_id=7059/6650/6649/6717/1507
+#
+# Sabatons of the Rushing Juggernaut (203)
+# feet=,id=178836,bonus_id=7209/6652/1501/5861/6646
+#
+# Seal of Righteous Fury (190)
+# finger1=,id=178926,enchant_id=6166,bonus_id=7062/6716/7193/6648/6649/1487
+#
+# Fleshfused Circle (203)
+# finger1=,id=178869,enchant_id=6166,bonus_id=7209/6652/7194/1501/5861/6646
+#
+# Arachnid Cipher Ring (200)
+# finger1=,id=178933,enchant_id=6168,bonus_id=7206/6652/7194/1501/5858/6646
+#
+# Sinful Aspirant's Badge of Ferocity (184)
+# trinket1=,id=175884,bonus_id=6782/1498/6646
+#
+# Hunger of the Pack (50)
+# trinket1=,id=136975,bonus_id=1826/1472/3528
+#
+# Skulker's Wing (213)
+# trinket1=,id=184016,bonus_id=7188/6652/1485/6646
+#
+# Anima Field Emitter (200)
+# trinket1=,id=180118,bonus_id=7206/6652/1501/5858/6646
+#
+# Unbound Changeling (200)
+# trinket1=,id=178708,bonus_id=7206/6652/6917/1501/5858/6646
+#
+# Instructor's Divine Bell (181)
+# trinket1=,id=184842,bonus_id=6652/1472/5878/6616
+#
+# Sinful Aspirant's Medallion (184)
+# trinket1=,id=184052,bonus_id=6789/1498/6646
+#
+# Macabre Sheet Music (213)
+# trinket1=,id=184024,bonus_id=7188/6652/1485/6646
+#
+# Cabalist's Hymnal (207)
+# trinket1=,id=184028,bonus_id=7189/1472/6646
+#
+# Soulletting Ruby (200)
+# trinket1=,id=178809,bonus_id=7206/6652/1501/5858/6646
+#
+# Darkmoon Deck: Voracity (200)
+# trinket1=,id=173087
+#
+# Misfiring Centurion Controller (184)
+# trinket1=,id=184839,bonus_id=6652/1472/5881/6646
+#
+# Overwhelming Power Crystal (194)
+# trinket1=,id=179342,bonus_id=7203/40/1501/5852/6646
+#
+# Nathrian Crusader's Bastard Sword (207)
+# main_hand=,id=182389,enchant_id=6228,bonus_id=7189/6652/1505/6646
+#
+# Gorestained Cleaver (184)
+# main_hand=,id=178863,enchant_id=6227,bonus_id=6807/6652/1498/6646
+#
+# Mace of Emberwrath (184)
+# main_hand=,id=181223,enchant_id=6229,bonus_id=6652/1472/5881/6646
+#
+# Elysian Sentinel's Aegis (187)
+# off_hand=,id=174310,bonus_id=7186/6652/1485/6646
