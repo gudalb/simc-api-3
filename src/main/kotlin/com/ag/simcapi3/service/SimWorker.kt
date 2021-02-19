@@ -8,22 +8,17 @@ import java.io.File
 import java.time.LocalDateTime
 
 @Service
-class SimWorker(var resultRepo: ResultRepo): Runnable {
-
-    var queue: ArrayList<QueueSimulation> = ArrayList()
+class SimWorker(var resultRepo: ResultRepo, var queueService: QueueService): Runnable {
 
     init {
         val t: Unit = Thread(this).start()
     }
 
-
-
-
     override fun run() {
         println("worker started")
             while(true) {
-                    if(queue.size > 0 && queue != null) {
-                        val firstInQueue: QueueSimulation = queue.get(0)
+                    if(queueService.queue.size > 0 && queueService.queue != null) {
+                        val firstInQueue: QueueSimulation = queueService.queue.get(0)
                         val fileName = "src/main/resources/profiles/${firstInQueue.UUID}.simc"
                         val profileFile = File(fileName)
                         profileFile.writeText(firstInQueue.profile)
@@ -50,7 +45,7 @@ class SimWorker(var resultRepo: ResultRepo): Runnable {
 
                         resultRepo.save(result)
 
-                        queue.remove(firstInQueue);
+                        queueService.queue.remove(firstInQueue);
                     }
             }
         }

@@ -4,61 +4,32 @@ import com.ag.simcapi3.model.Message
 import com.ag.simcapi3.model.QueueSimulation
 import com.ag.simcapi3.model.SimResult
 import com.ag.simcapi3.repo.ResultRepo
+import com.ag.simcapi3.service.QueueService
 import com.ag.simcapi3.service.SimWorker
+import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
-import java.time.LocalDateTime
 
 @CrossOrigin
 @RestController
-class SimController (val simWorker: SimWorker, val resultRepo: ResultRepo){
-
-//    @PostMapping(value = ["/simulate"], consumes = ["application/json"], produces = ["application/json"])
-//    fun simulate(@RequestBody profile: Profile): SimResult {
-//        return simService.runSim(profile.profile)
-//    }
-//
-//    @PostMapping(value = ["/simulate-armory"], consumes = ["application/json"], produces = ["application/json"])
-//    fun simulateArmory(@RequestBody profile: ArmoryInfo): SimResult {
-//        return simService.simArmory(profile)
-//    }
-//
-//    @GetMapping(value = ["/simulate-armory"], produces = ["application/json"])
-//    fun simulateArmory(@RequestParam(value = "region") region: String,
-//                       @RequestParam(value = "realm") realm: String,
-//                       @RequestParam(value = "charName") charName: String
-//    ): SimResult {
-//        return simService.simArmory2(ArmoryInfo(region, realm, charName))
-//    }
+class SimController (val simWorker: SimWorker, val resultRepo: ResultRepo, val queueService: QueueService){
 
     @PostMapping(value = ["/queuesim"], consumes = ["application/json"], produces = ["application/json"])
-    fun placeInQueue(@RequestBody queueSimulation: QueueSimulation): Message {
+    fun placeInQueue(@RequestBody queueSimulation: QueueSimulation): Int {
 
 
-        val simulationQueue = simWorker.queue
+        val simulationQueue = queueService.queue
 
         simulationQueue.add(queueSimulation)
 
         println("added to queue: " + queueSimulation.UUID)
         println("queue size" + simulationQueue.size)
-        println("index of queue" + simulationQueue.indexOf(queueSimulation))
+        println("index of queue" + queueService.getQueuePosition(queueSimulation.UUID))
 
-        return Message("queued", "${simulationQueue.size}", "${simulationQueue.indexOf(queueSimulation)}")
+        return queueService.getQueuePosition(queueSimulation.UUID)
     }
 
-    @GetMapping(value = ["/placeinqueue"], produces = ["application/json"])
-    fun getPlaceInQueue(@RequestParam(value = "uuid") uuid: String): Int {
-
-        val queuedSimulations = simWorker.queue
-
-        val queuedSimulation = queuedSimulations.firstOrNull { it.UUID.equals(uuid) }
-        val simIndex = queuedSimulations.indexOf(queuedSimulation)
-
-        if (queuedSimulation != null) {
-            return simIndex
-        } else
-            return -1
-
-    }
+    @GetMapping(value = ["/queueposition"], produces = ["application/json"])
+    fun getPlaceInQueue(@RequestParam(value = "uuid") uuid: String) = queueService.getQueuePosition(uuid)
 
     @GetMapping(value = ["/getresult"], produces = ["application/json"])
     fun getResult(@RequestParam(value = "uuid") uuid: String): SimResult {
@@ -71,4 +42,8 @@ class SimController (val simWorker: SimWorker, val resultRepo: ResultRepo){
         var result = resultRepo.findAll()
         return result
     }
+
+    @GetMapping(value = ["/queueposition/{uuid}"],produces = [MediaType.TEXT_EVENT_STREAM_VALUE])
+    fun  queuePositionStream(@PathVariable uuid: String) = queueService.queuePositionStream(uuid)
+
 }
